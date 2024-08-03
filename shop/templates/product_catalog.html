@@ -1,0 +1,15 @@
+{% for product in products %}
+    <div>
+        <h3>{{ product.name }}</h3>
+        <p>Цена: {{ product.price }}</p>
+        <p>Категория: {{ product.category.name }}</p>
+        <p>Теги:
+        {% for tag in product.description.all %}
+            {{ tag.name }}
+        {% endfor %}
+        </p>
+        <a href="{% url 'product_detail' product.id %}">Подробнее</a>
+    </div>
+{% endfor %}
+
+<a href="{% url 'suppliers' %}">Список поставщиков</a>

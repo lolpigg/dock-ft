@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список поставщиков</title>
+</head>
+<body>
+    <h1>Список поставщиков</h1>
+    <a href="{% url 'add_supplier' %}">Добавить поставщика</a>
+    <ul>
+        {% for supplier in suppliers %}
+            <li>
+                <strong>Название компании:</strong> {{ supplier.company_name }}<br>
+                <strong>ФИО представителя:</strong> {{ supplier.representative_name }}<br>
+                <strong>Телефон представителя:</strong> {{ supplier.representative_phone }}<br>
+                <strong>Адрес:</strong> {{ supplier.address }}<br>
+                <a href="{% url 'supplier_detail' supplier.id %}">Подробнее</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

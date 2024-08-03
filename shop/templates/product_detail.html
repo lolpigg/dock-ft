@@ -1,0 +1,17 @@
+<h2>{{ product.name }}</h2>
+<p>Цена: {{ product.price }}</p>
+<p>Категория: {{ product.category.name }}</p>
+{% if product.category.description %}
+    <p>Описание категории: {{ product.category.description }}</p>
+{% endif %}
+Теги:
+{% for tag in tags %}
+<p>{{ tag.name }} - {{ tag.description }}</p>
+{% endfor %}
+</p>
+<h3>Характеристики:</h3>
+<ul>
+    {% for characteristic in product.productcharacteristic_set.all %}
+        <li>{{ characteristic.characteristic }}: {{ characteristic.value }}</li>
+    {% endfor %}
+</ul>
